@@ -1,21 +1,16 @@
 
 version: 2
 
-models:
-    - name: my_first_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
+sources:
+  - name: 'TPCH_SF1000'
+    tables:
+      - name: Part
+      - name: Partsupp
+      - name: Supplier
+      - name: Nation
+      - name: Region
+      
 
-    - name: my_second_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
+  - name: dbt_snowflake_sample
+    database: snowflake_sample_data
+  
